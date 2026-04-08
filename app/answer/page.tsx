@@ -98,7 +98,7 @@ function AnswerClient() {
           <Share size={18} /> 친구들 공부도 방해히기 (링크 복사)
         </button>
         <button onClick={()=>router.push('/')} className="w-full bg-primary text-[#0a0a0a] py-5 rounded-2xl font-black border-b-[6px] border-[#99CC00] active:scale-95 transition-transform flex items-center justify-center gap-2 mt-2 shadow-[0_0_20px_rgba(204,255,0,0.3)]">
-          <Home size={18} border="currentColor" /> 홈으로 돌아가서 공부(?)하기
+          <Home size={18} /> 홈으로 돌아가서 공부(?)하기
         </button>
       </div>
     </motion.div>

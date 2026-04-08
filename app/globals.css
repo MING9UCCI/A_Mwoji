@@ -22,3 +22,126 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
+/* ===== RESPONSIVE LAYOUT ===== */
+
+/* Mobile: Full screen app */
+.desktop-wrapper {
+  display: flex;
+  min-height: 100dvh;
+}
+
+.desktop-brand {
+  display: none;
+}
+
+.app-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  min-height: 100dvh;
+}
+
+.app-main {
+  width: 100%;
+  max-width: 28rem; /* max-w-md */
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0 1rem;
+}
+
+/* Desktop: 2-column layout */
+@media (min-width: 1024px) {
+  .desktop-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45%;
+    min-height: 100dvh;
+    background: linear-gradient(135deg, #0A0A0A 0%, #111111 50%, #0D0D0D 100%);
+    border-right: 1px solid rgba(204, 255, 0, 0.08);
+    position: sticky;
+    top: 0;
+    padding: 3rem;
+  }
+
+  .brand-content {
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .brand-logo {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #CCFF00, #99CC00);
+    border-radius: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #0A0A0A;
+    box-shadow: 0 0 40px rgba(204, 255, 0, 0.25);
+  }
+
+  .brand-title {
+    font-size: 2.75rem;
+    font-weight: 900;
+    color: #CCFF00;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .brand-subtitle {
+    font-size: 1.05rem;
+    color: rgba(240, 240, 240, 0.6);
+    line-height: 1.7;
+    font-weight: 500;
+  }
+
+  .brand-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(240, 240, 240, 0.06);
+  }
+
+  .brand-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+    color: rgba(240, 240, 240, 0.55);
+    font-weight: 500;
+  }
+
+  .brand-feature-icon {
+    font-size: 1.15rem;
+    width: 2rem;
+    text-align: center;
+  }
+
+  .app-container {
+    width: 55%;
+    background: radial-gradient(ellipse at center, rgba(204, 255, 0, 0.02) 0%, transparent 70%);
+  }
+
+  .app-main {
+    max-width: 26rem;
+    padding: 0 1.5rem;
+  }
+}
+
+/* Wiggle animation for bell icon */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  50% { transform: rotate(-10deg); }
+  75% { transform: rotate(5deg); }
+}
