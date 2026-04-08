@@ -1,0 +1,16 @@
+{
+  "name": "아 뭐지? (A Mwoji)",
+  "short_name": "아 뭐지?",
+  "description": "공부 방해용 엉뚱한 푸시 알림 앱",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D0D0D",
+  "theme_color": "#0D0D0D",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
