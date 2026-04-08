@@ -34,7 +34,9 @@ export async function POST(req: Request) {
     if (error || !data) throw error;
 
     // 통계 업데이트 (게임 클리어 횟수 증가) - 실패해도 무관하게 에러는 무시
-    await supabase.rpc('increment_total_clears', { uid: userId }).catch(() => null);
+    try {
+      await supabase.rpc('increment_total_clears', { uid: userId });
+    } catch (err) {}
 
     return NextResponse.json({ token, expiresAt });
   } catch (error) {

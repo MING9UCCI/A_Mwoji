@@ -42,7 +42,9 @@ export async function POST(req: Request) {
         .update({ revealed: true, reveal_token: null }) // 토큰 소진
         .eq('id', uq.id);
         
-      await supabase.rpc('increment_total_revealed', { uid: userId }).catch(() => null);
+      try {
+        await supabase.rpc('increment_total_revealed', { uid: userId });
+      } catch (err) {}
     }
 
     return NextResponse.json({ 

@@ -38,7 +38,11 @@ export async function POST(req: Request) {
     if (uqError || !uqData) throw uqError;
 
     // 간단한 통계 업데이트
-    await supabase.rpc('increment_notification_count', { uid: userId }).catch(()=>null);
+    try {
+      await supabase.rpc('increment_notification_count', { uid: userId });
+    } catch(err) {
+      console.warn("통계 카운팅 실패(무시):", err);
+    }
 
     return NextResponse.json({ 
       questionId: qData.id, 
@@ -46,8 +50,12 @@ export async function POST(req: Request) {
       userQuestionId: uqData.id 
     });
 
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+  } catch (error: any) {
+    console.error("API Error details:", error);
+    return NextResponse.json({ 
+      error: error?.message || 'Internal Server Error',
+      details: error?.details || 'No details',
+      stack: error?.stack 
+    }, { status: 500 });
   }
 }
